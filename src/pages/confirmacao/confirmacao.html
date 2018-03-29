@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-right>
+      <ion-icon name="water"></ion-icon> PediuAgua.com.br</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item-divider>
+        Confira seu pedido
+      </ion-item-divider>
+
+  <ion-list>
+    <ion-row>
+      <ion-col text-center>
+        <h2>Galão de 10 litros</h2>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+      <ion-thumbnail>
+        <img src="img/galao10.jpg">
+      </ion-thumbnail>
+      <p item-end>Qtde:
+        <b>{{dados.qtde10}}</b>
+      </p>
+    </ion-item>
+
+    <ion-row>
+      <ion-col text-center>
+        <h2>Galão de 20 litros</h2>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+
+      <ion-thumbnail>
+        <img src="img/galao20.jpg">
+      </ion-thumbnail>
+      <p item-end>Qtde:
+        <b>{{dados.qtde20}}</b>
+      </p>
+
+    </ion-item>
+
+    <ion-item>
+      <p>Endereço:</p>
+      <p>Rua Adão Stroppa, 519</p>
+
+    </ion-item>
+
+  </ion-list>
+  <button ion-button round (click)="pedidoConfirmado()" large full>Confirmar Pedido</button>
+</ion-content>

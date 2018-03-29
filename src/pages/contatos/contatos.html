@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-right>
+      <ion-icon name="water"></ion-icon> PediuAgua.com.br</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-divider>
+    O que você precisa:
+  </ion-item-divider>
+
+  <ion-list>
+    <ion-row>
+      <ion-col text-center>
+        <h2>Galão de 10 litros</h2>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+      <ion-thumbnail>
+        <img src="img/galao10.jpg">
+      </ion-thumbnail>
+      <button ion-button icon-only round item-end large [disabled]="dados.qtde10 <= 0" (click)="decrease10()">
+        <ion-icon name="remove-circle"></ion-icon>
+      </button>
+      <p item-end>Qtde:
+        <b>{{dados.qtde10}}</b>
+      </p>
+
+      <button ion-button icon-only round item-end large (click)="increase10()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-row>
+      <ion-col text-center>
+        <h2>Galão de 20 litros</h2>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+
+      <ion-thumbnail>
+        <img src="img/galao20.jpg">
+      </ion-thumbnail>
+
+      <button ion-button icon-only round item-end large [disabled]="dados.qtde20 <= 0" (click)="decrease20()">
+        <ion-icon name="remove-circle"></ion-icon>
+      </button>
+      <p item-end>Qtde:
+        <b>{{dados.qtde20}}</b>
+      </p>
+
+      <button ion-button icon-only round item-end large (click)="increase20()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+
+    </ion-item>
+  </ion-list>
+  <button ion-button type="submit" round color="secondary" [disabled]="dados.qtde20 == 0 && dados.qtde10 == 0" (click)="pedir()" large full>Pedir</button>
+</ion-content>
+
+<ion-footer>
+    Aqui você pede sua água rapidamente com alguns clicks.
+</ion-footer>
+
+<!-- <ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Contatos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items | async">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{ item.url }}" />
+        </ion-avatar>
+        {{ item.name }}
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button icon-only color="primary" (click)="editItem(item)"><ion-icon name="create"></ion-icon></button>
+        <button ion-button icon-only color="danger" (click)="removeItem(item)"><ion-icon name="trash"></ion-icon></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button ion-fab color="secondary" (click)="newContact()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content> -->
