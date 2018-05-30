@@ -4,6 +4,10 @@ import { NgForm } from '@angular/forms';
 import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
 import { HomePage } from '../home/home';
+import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { FirebaseListObservable } from "angularfire2/database-deprecated";
+import { FirebaseProvider } from './../../providers/firebase/firebase';
+import { ContatosPage } from '../contatos/contatos';
 
 @IonicPage()
 @Component({
@@ -17,6 +21,8 @@ export class SignupPage {
   constructor(
     public navCtrl: NavController,
     private toastCtrl: ToastController,
+    public firebaseProvider: FirebaseProvider,
+    public database : AngularFireDatabase,
     private authService: AuthService) {
   }
 
@@ -31,7 +37,9 @@ export class SignupPage {
           toast.setMessage('Usuário criado com sucesso.');
           toast.present();
 
-          this.navCtrl.setRoot(HomePage);
+
+          this.firebaseProvider.addUser(this.user);
+          this.navCtrl.setRoot(ContatosPage);
         })
         .catch((error: any) => {
           if (error.code  == 'auth/email-already-in-use') {

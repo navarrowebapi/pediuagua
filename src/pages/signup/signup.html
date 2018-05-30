@@ -12,6 +12,22 @@
     <ion-list>
 
       <ion-item>
+        <ion-label stacked>Nome</ion-label>
+        <ion-input type="text" name="nome" [(ngModel)]="user.nome"  #nome="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="nome.errors && (nome.dirty || nome.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Celular</ion-label>
+        <ion-input type="text" name="celular" placeholder="99-999999999" [(ngModel)]="user.celular"  #celular="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="celular.errors && (celular.dirty || celular.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+
+      <ion-item>
         <ion-label stacked>E-mail</ion-label>
         <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
       </ion-item>
@@ -24,6 +40,30 @@
         <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
       </ion-item>
       <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Endereço</ion-label>
+        <ion-input type="text" name="endereco" [(ngModel)]="user.endereco"  #endereco="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="endereco.errors && (endereco.dirty || endereco.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Número</ion-label>
+        <ion-input type="text" name="numero" [(ngModel)]="user.numero"  #numero="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="numero.errors && (numero.dirty || numero.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Bairro</ion-label>
+        <ion-input type="text" name="bairro" [(ngModel)]="user.bairro"  #bairro="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="bairro.errors && (bairro.dirty || bairro.touched)" class="text-danger">
         O campo é obrigatório
       </ion-item>
 

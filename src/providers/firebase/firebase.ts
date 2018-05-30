@@ -18,6 +18,10 @@ export class FirebaseProvider {
   getPedidos() {
     return this.afd.list('/pedidos/');
   }
+
+  addUser(user) {
+    this.afd.list('/clientes/').push(user);
+  }
  
   addPedido(name) {
     this.afd.list('/pedidos/').push(name);

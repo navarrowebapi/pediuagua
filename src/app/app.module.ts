@@ -19,6 +19,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { EditContatosPage } from '../pages/edit-contatos/edit-contatos';
 import { ConfirmacaoPage } from "../pages/confirmacao/confirmacao";
+import { UsuarioPage } from '../pages/usuario/usuario';
 
 import { AuthService } from '../providers/auth/auth-service';
 import { ContactService } from '../providers/contact-service/contact-service';
@@ -43,6 +44,7 @@ const firebaseConfig = {
     HomePage,
     SigninPage,
     ConfirmacaoPage,
+    UsuarioPage,
     SigninWithEmailPage,
     SignupPage,
     ResetpasswordPage,
@@ -63,6 +65,7 @@ const firebaseConfig = {
     HomePage,
     SigninPage,
     ConfirmacaoPage,
+    UsuarioPage,
     SigninWithEmailPage,
     SignupPage,
     ResetpasswordPage,

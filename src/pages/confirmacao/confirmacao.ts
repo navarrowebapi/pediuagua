@@ -5,6 +5,9 @@ import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { FirebaseListObservable } from "angularfire2/database-deprecated";
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 
+import { UsuarioPage } from '../usuario/usuario';
+
+
 @IonicPage()
 @Component({
   selector: 'page-confirmacao',
@@ -13,8 +16,11 @@ import { FirebaseProvider } from './../../providers/firebase/firebase';
 export class ConfirmacaoPage {
   pedidos: any;
   dados = {
+    idDistribuidor:0,
+    idCliente:0,
     qtde20: 0,
-    qtde10: 0
+    qtde10: 0,
+    timeStamp:''
     }
 
   constructor(public navCtrl: NavController, public firebaseProvider: FirebaseProvider, public database : AngularFireDatabase, public navParams: NavParams, public modalCtrl: ModalController) {
@@ -27,12 +33,8 @@ export class ConfirmacaoPage {
   }
 
   pedidoConfirmado(){
-    //Enviar pedido - firebase;
-
     this.firebaseProvider.addPedido(this.dados);
-    console.log('OK pedido salvo')
-    // let confirmModal = this.modalCtrl.create('ModalConfirmacaoPage', { data: '' }, { showBackdrop: true, enableBackdropDismiss: false });
-    // confirmModal.present();
+    this.navCtrl.push(UsuarioPage)
   }
 
 }

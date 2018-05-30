@@ -1,4 +1,5 @@
 <ion-tabs color="primary">
-    <ion-tab [root]="contatosRoot" tabTitle="Contatos" tabIcon="contacts"></ion-tab>
-    <ion-tab [root]="usuarioRoot" tabTitle="Usuario" tabIcon="information-circle"></ion-tab>
+    <ion-tab [root]="contatosRoot" tabTitle="Pedidos" tabIcon="contacts"></ion-tab>
+    <ion-tab (ionSelect)="sair()" tabTitle="Sair" tabIcon="log-out"></ion-tab>
+    <!-- <ion-tab [root]="usuarioRoot" tabTitle="Usuario" tabIcon="information-circle"></ion-tab> -->
 </ion-tabs>
