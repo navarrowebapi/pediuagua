@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 // import { GooglePlus } from '@ionic-native/google-plus';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 // import { TwitterConnect } from '@ionic-native/twitter-connect';
+import { CONFIG } from '../..//providers/app-config'
 
 @Injectable()
 export class AuthService {
@@ -19,8 +20,13 @@ export class AuthService {
   }
 
   signIn(user: User) {
-    console.log("ok para sign in email");
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+    //console.log("ok para sign in email");
+    return this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password)
+      .then(function(firebaseUser){
+        CONFIG.cliente = firebaseUser.uid;
+        // console.log("DEPOIS LOGIN");
+        // console.log(firebaseUser);
+    });
   }
 
   // signInWithGoogle() {

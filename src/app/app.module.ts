@@ -26,6 +26,8 @@ import { ContactService } from '../providers/contact-service/contact-service';
 
 // import { GooglePlus } from '@ionic-native/google-plus';
 import { Facebook } from '@ionic-native/facebook';
+import { MarcasPageModule } from '../pages/marcas/marcas.module';
+import { ContatosPage } from '../pages/contatos/contatos';
 // import { TwitterConnect } from '@ionic-native/twitter-connect';
 // import { ImagePicker } from '@ionic-native/image-picker';
 
@@ -44,6 +46,7 @@ const firebaseConfig = {
     HomePage,
     SigninPage,
     ConfirmacaoPage,
+    ContatosPage,
     UsuarioPage,
     SigninWithEmailPage,
     SignupPage,
@@ -54,6 +57,7 @@ const firebaseConfig = {
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    MarcasPageModule,
     IonicModule.forRoot(MyApp),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig)
@@ -64,6 +68,7 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     SigninPage,
+    ContatosPage,
     ConfirmacaoPage,
     UsuarioPage,
     SigninWithEmailPage,

@@ -20,6 +20,7 @@ export class ConfirmacaoPage {
     idCliente:0,
     qtde20: 0,
     qtde10: 0,
+    marcaEscolhida:0,
     timeStamp:''
     }
 

@@ -12,7 +12,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 export class FirebaseProvider {
 
   constructor(public http: HttpClient, public afd: AngularFireDatabase) {
-    console.log('Hello FirebaseProvider Provider');
+    //console.log('Hello FirebaseProvider Provider');
   }
 
   getPedidos() {

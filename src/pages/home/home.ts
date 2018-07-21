@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth/auth-service';
+import { SigninPage } from '../signin/signin';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +11,7 @@ export class HomePage {
 
    contatosRoot = 'ContatosPage'
    usuarioRoot = 'UsuarioPage'
-
+   marcasRoot = 'MarcasPage' 
 
   constructor(public navCtrl: NavController,  private authService: AuthService,) {
 

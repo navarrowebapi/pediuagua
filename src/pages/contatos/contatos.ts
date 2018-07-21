@@ -16,16 +16,23 @@ import { CONFIG } from '../..//providers/app-config'
 })
 export class ContatosPage {
 
+  marca = {
+    idMarca:0 
+  }
+
   dados = {
     idDistribuidor:CONFIG.distribuidor,
     idCliente:CONFIG.cliente,
     qtde20: 0,
     qtde10: 0,
     atendido: false,
+    marcaEscolhida:0,
     timeStamp: Date.now() 
   }
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private contactService: ContactService) {
+    this.marca = this.navParams.data;
+    this.dados.marcaEscolhida = this.marca.idMarca;
     //this.items = this.contactService.getAll();
     //console.log("From contatos.ts " + JSON.stringify(this.items));
     //console.log(CONFIG);

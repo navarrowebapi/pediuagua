@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Marcas</ion-title>
+      <ion-title text-right>
+
+        <ion-icon name="water"></ion-icon> PediuAgua.com.br</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="img/ibira.png">
+      </ion-thumbnail>
+      <h2>água Ibirá</h2>
+      <p>PH 7,2 • R$12,00</p>
+      <button ion-button clear item-end (click)="ibira()">escolher</button>
+    </ion-item>
+    <ion-item>
+        <ion-thumbnail item-start>
+          <img src="img/bonafont.png">
+        </ion-thumbnail>
+        <h2>água Bonafont</h2>
+        <p>PH 6,4 • R$14,00</p>
+        <button ion-button clear item-end (click)="bonafont()">escolher</button>
+      </ion-item>
+      <ion-item>
+          <ion-thumbnail item-start>
+            <img src="img/aguaboa.png">
+          </ion-thumbnail>
+          <h2>água aguaboa</h2>
+          <p>PH 7,1 • R$13,00</p>
+          <button ion-button clear item-end (click)="aguaboa()">escolher</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-start>
+              <img src="img/indaia.png">
+            </ion-thumbnail>
+            <h2>água Indaiá</h2>
+            <p>PH 6,5 • R$11,00</p>
+            <button ion-button clear item-end (click)="indaia()">escolher</button>
+          </ion-item>
+          <ion-item>
+              <ion-thumbnail item-start>
+                <img src="img/prata.png">
+              </ion-thumbnail>
+              <h2>água Prata</h2>
+              <p>PH 8,5 • R$14,00</p>
+              <button ion-button clear item-end (click)="prata()">escolher</button>
+            </ion-item>
+  </ion-list>
+</ion-content>
