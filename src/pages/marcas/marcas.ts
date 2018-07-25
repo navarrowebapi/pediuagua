@@ -42,19 +42,27 @@ export class MarcasPage {
   }
 
   bonafont() {
+    let marca = this.marca;
     this.marca.idMarca = 2;
+    this.navCtrl.push(ContatosPage, marca)
   }
 
   aguaboa() {
+    let marca = this.marca;
     this.marca.idMarca = 3;
+    this.navCtrl.push(ContatosPage, marca)
   }
   
   indaia() {
+    let marca = this.marca;
     this.marca.idMarca = 4;
+    this.navCtrl.push(ContatosPage, marca)
   }
 
   prata() {
+    let marca = this.marca;
     this.marca.idMarca = 5;
+    this.navCtrl.push(ContatosPage, marca)
   }
 
 }

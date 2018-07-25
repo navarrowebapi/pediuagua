@@ -1,19 +1,29 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from './user';
 import * as firebase from 'firebase/app';
 // import { GooglePlus } from '@ionic-native/google-plus';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
-// import { TwitterConnect } from '@ionic-native/twitter-connect';
+// import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CONFIG } from '../..//providers/app-config'
+import { AngularFireDatabase } from '../../../node_modules/angularfire2/database';
+import { MarcasPage } from '../../pages/marcas/marcas';
+import {Nav} from 'ionic-angular';
 
 @Injectable()
 export class AuthService {
+  @ViewChild(Nav) nav: Nav;
 
   // constructor(private angularFireAuth: AngularFireAuth, private googlePlus: GooglePlus, private facebook: Facebook, private twitter: TwitterConnect) { }
   
-  constructor(private angularFireAuth: AngularFireAuth, private facebook: Facebook) { }
+  constructor( private angularFireAuth: AngularFireAuth, private facebook: Facebook, private afDatabase : AngularFireDatabase) { }
 
+  // createProfile(user: User) {
+  //   this.angularFireAuth.authState.take(1).subscribe(auth => {
+  //       this.afDatabase.object('profile/${auth.uid').set(user)
+  //       .then(() => this.nav.push(MarcasPage))
+  //   });
+  // }
 
   createUser(user: User) {
     return this.angularFireAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
@@ -23,9 +33,18 @@ export class AuthService {
     //console.log("ok para sign in email");
     return this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password)
       .then(function(firebaseUser){
+
         CONFIG.cliente = firebaseUser.uid;
+        CONFIG.bairro = firebaseUser.bairro;
+        CONFIG.celular = firebaseUser.celular;
+        CONFIG.email = firebaseUser.email;
+        CONFIG.endereco = firebaseUser.endereco;
+        CONFIG.nome = firebaseUser.nome;
+        CONFIG.numero = firebaseUser.numero;
+        
         // console.log("DEPOIS LOGIN");
-        // console.log(firebaseUser);
+        console.log(firebaseUser);
+        // console.log(CONFIG.cliente);
     });
   }
 

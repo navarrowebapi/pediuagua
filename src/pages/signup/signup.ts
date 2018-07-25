@@ -4,10 +4,9 @@ import { NgForm } from '@angular/forms';
 import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
 import { HomePage } from '../home/home';
-import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { FirebaseListObservable } from "angularfire2/database-deprecated";
+import { AngularFireDatabase} from 'angularfire2/database';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
-import { ContatosPage } from '../contatos/contatos';
+
 
 @IonicPage()
 @Component({
@@ -26,6 +25,7 @@ export class SignupPage {
     private authService: AuthService) {
   }
 
+
   createAccount() {
     if (this.form.form.valid) {
       let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
@@ -37,9 +37,8 @@ export class SignupPage {
           toast.setMessage('Usuário criado com sucesso.');
           toast.present();
 
-
           this.firebaseProvider.addUser(this.user);
-          this.navCtrl.setRoot(ContatosPage);
+          this.navCtrl.setRoot(HomePage);
         })
         .catch((error: any) => {
           if (error.code  == 'auth/email-already-in-use') {
@@ -55,5 +54,12 @@ export class SignupPage {
         });
     }
   }
+
+    // createProfile(user: User) {
+  //   this.angularFireAuth.authState.take(1).subscribe(auth => {
+  //       this.afDatabase.object('profile/${auth.uid').set(user)
+  //       .then(() => this.nav.push(MarcasPage))
+  //   });
+  // }
 
 }

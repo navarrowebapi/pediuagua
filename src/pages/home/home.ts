@@ -13,7 +13,7 @@ export class HomePage {
    usuarioRoot = 'UsuarioPage'
    marcasRoot = 'MarcasPage' 
 
-  constructor(public navCtrl: NavController,  private authService: AuthService,) {
+  constructor(public navCtrl: NavController,  private authService: AuthService) {
 
 }
 
@@ -23,7 +23,7 @@ sair() {
     this.navCtrl.parent.parent.setRoot(SigninPage);
   })
   .catch((error) => {
-    console.error(error);
+    //console.error(error);
   });
 }
 
