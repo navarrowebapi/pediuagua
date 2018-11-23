@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Distribuidores</ion-title>
+    <ion-title text-right>
+
+      <ion-icon name="water"></ion-icon> PediuAgua.com.br
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<!-- <ion-content>
+  <ion-list>
+    <ion-item *ngFor="let empresa of empresas">
+      <img [src]="empresa.data.url" />
+      <ion-label>Favorita</ion-label>
+      <ion-checkbox [(ngModel)]="empresa1fav" disabled="false" (ionChange)="favoritar()"></ion-checkbox>
+      <button ion-button item-end (click)="escolhaempresa1()" round>escolher</button>
+    </ion-item>
+  </ion-list>
+</ion-content> -->
+
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img src="img/suaempresa.png">
+    </ion-thumbnail>
+
+        <ion-label>Favorita</ion-label>
+        <ion-checkbox [(ngModel)]="empresa1fav" disabled="false" (ionChange)="favoritar()"></ion-checkbox>
+
+    <button ion-button item-end (click)="escolhaempresa1()" round>escolher</button>
+  </ion-item>
+</ion-list>
+</ion-content>

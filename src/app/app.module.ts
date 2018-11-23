@@ -28,6 +28,7 @@ import { ContactService } from '../providers/contact-service/contact-service';
 // import { GooglePlus } from '@ionic-native/google-plus';
 import { Facebook } from '@ionic-native/facebook';
 import { MarcasPageModule } from '../pages/marcas/marcas.module';
+import { DistribuidoresPageModule } from "../pages/distribuidores/distribuidores.module";
 import { ContatosPage } from '../pages/contatos/contatos';
 // import { TwitterConnect } from '@ionic-native/twitter-connect';
 // import { ImagePicker } from '@ionic-native/image-picker';
@@ -59,6 +60,7 @@ const firebaseConfig = {
     HttpModule,
     HttpClientModule,
     MarcasPageModule,
+    DistribuidoresPageModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,

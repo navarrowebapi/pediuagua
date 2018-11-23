@@ -23,13 +23,16 @@ export class FirebaseProvider {
     return this.afd.list('/pedidos/');
   }
 
-  getClienteById(id) {
+  getClienteByEmail(mail) {
 
-    console.log('teste');
-    return this.afd.list('/clientes/', ref => ref.orderByChild('email').equalTo('fpnav@yahoo.com.br'))
+    return this.afd.list('/clientes/', ref => ref.orderByChild('email').equalTo(mail))
         .snapshotChanges()
         .map(res => {
+          
+            console.log('getClienteById');
+            console.log(res.map(c => ({key: c.payload.key, ...c.payload.val()})));
             return res.map(c => ({key: c.payload.key, ...c.payload.val()}));
+
         })
   }
 

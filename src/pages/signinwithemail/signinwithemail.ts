@@ -21,8 +21,8 @@ export class SigninWithEmailPage {
     public navCtrl: NavController,
     private toastCtrl: ToastController,
     private authService: AuthService) {
-      this.user.email = "navarro.fabio@gmail.com";
-      this.user.password = "123123";
+      //this.user.email = "navarro.fabio@gmail.com";
+      //this.user.password = "123123";
   }
 
   resetPassword() {

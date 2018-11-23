@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContatosPage } from '../contatos/contatos';
+import { CONFIG } from '../..//providers/app-config'
 
 /**
  * Generated class for the MarcasPage page.
@@ -20,25 +21,51 @@ export class MarcasPage {
     idMarca:0 
   }
 
+  empresaescolhida = {
+    idEmpresa:0,
+    favoritada:false 
+  }
+  dados = {
+    idDistribuidor:CONFIG.distribuidor,
+    idCliente:CONFIG.cliente,
+    nome:"",
+    celular:"",
+    email:"",
+    endereco:"",
+    numero:"",
+    bairro:"",
+    qtde20: 0,
+    qtde10: 0,
+    atendido: false,
+    marcaEscolhida:0,
+    empresaEscolhida:{},
+    timeStamp: Date.now() 
+  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.empresaescolhida = this.navParams.data;
+    this.dados.empresaEscolhida = this.empresaescolhida;
   }
 
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad MarcasPage');
+    // console.log('ionViewDidLoad MarcasPage');
+    // console.log(this.empresaescolhida);
+    // console.log(this.dados);
   }
 
 
   escolherMarca(){
     let marca = this.marca;
     this.navCtrl.push(ContatosPage, marca)
-    
   }
 
 
   ibira() {
-    let marca = this.marca;
-    this.marca.idMarca = 1;
-    this.navCtrl.push(ContatosPage, marca)
+    //let marca = this.marca;
+    //this.marca.idMarca = 1;
+    this.dados.marcaEscolhida = 1;
+    //this.navCtrl.push(ContatosPage, marca)
+    this.navCtrl.push(ContatosPage, this.dados)
   }
 
   bonafont() {

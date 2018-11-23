@@ -34,6 +34,7 @@ export class ConfirmacaoPage {
     qtde10: 0,
     atendido: false,
     marcaEscolhida:0,
+    empresaEscolhida:{},
     timeStamp: Date.now() 
   }
 
@@ -41,6 +42,7 @@ export class ConfirmacaoPage {
     this.dados = this.navParams.data;
     this.pedidos = this.firebaseProvider.getPedidos();
 
+    console.log("Dados na página de Confirmação");
     console.log(this.dados);
 
     if (this.dados.marcaEscolhida == 1) {
@@ -72,6 +74,8 @@ export class ConfirmacaoPage {
   }
 
   pedidoConfirmado() {
+    console.log("Confirmando pedido");
+    console.log(this.dados);
     this.firebaseProvider.addPedido(this.dados);
     this.navCtrl.push(UsuarioPage)
   }

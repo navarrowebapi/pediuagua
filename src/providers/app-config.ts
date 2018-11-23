@@ -1,5 +1,5 @@
 export let CONFIG = {
-    distribuidor: "1001",
+    distribuidor: "cgratao@yahoo.com.br",
     cliente: "",
     nome:"",
     celular:"",

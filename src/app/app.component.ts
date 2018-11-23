@@ -27,6 +27,12 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+              // // Get the status from the storage
+              // this.storage.get('login:status').then(loggedIn => {
+              //   this.rootPage = loggedIn ? HomePage : LoginPage;
+              // });
+
       
     });
   }

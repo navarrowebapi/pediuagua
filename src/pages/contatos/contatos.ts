@@ -16,6 +16,11 @@ export class ContatosPage {
     idMarca:0 
   }
 
+  empresaescolhida = {
+    idEmpresa:0,
+    favoritada:false 
+  }
+
   dados = {
     idDistribuidor:CONFIG.distribuidor,
     idCliente:CONFIG.cliente,
@@ -29,19 +34,26 @@ export class ContatosPage {
     qtde10: 0,
     atendido: false,
     marcaEscolhida:0,
+    empresaEscolhida:{},
     timeStamp: Date.now() 
   }
 
   contato = {};
 
   constructor(private navCtrl: NavController, private navParams: NavParams, public firebaseProvider: FirebaseProvider) {
-    this.marca = this.navParams.data;
-    this.dados.marcaEscolhida = this.marca.idMarca;
+    console.log("chega assim em contatos");
+    console.log(this.navParams.data);
+    // this.marca = this.navParams.data;
+
+    this.dados.empresaEscolhida = this.navParams.data.empresaEscolhida;
+    this.dados.marcaEscolhida = this.navParams.data.marcaEscolhida;
+    console.log("acabou de chegar em contatos e já coloquei marca e empresa em dados");
+    console.log(this.dados);
 
     //this.items = this.contactService.getAll();
     //console.log("From contatos.ts " + JSON.stringify(this.items));
     console.log("vai");
-      const subs = this.firebaseProvider.getClienteById(CONFIG.cliente)
+      const subs = this.firebaseProvider.getClienteByEmail(CONFIG.email)
         .subscribe((c: any) => {
           subs.unsubscribe();
           this.contato = c;
@@ -51,6 +63,8 @@ export class ContatosPage {
           this.dados.endereco = c[0].endereco;
           this.dados.nome = c[0].nome;
           this.dados.numero = c[0].numero;
+
+          console.log(this.dados);
         })
   }
 
@@ -58,6 +72,8 @@ export class ContatosPage {
 
   pedir(){
     let dados = this.dados;
+    console.log("Saindo de contatos/pedidos");
+    console.log(dados);
     this.navCtrl.push(ConfirmacaoPage, dados)
     
   }
