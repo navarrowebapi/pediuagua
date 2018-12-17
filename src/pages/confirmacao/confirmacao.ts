@@ -32,7 +32,8 @@ export class ConfirmacaoPage {
     bairro:"",
     qtde20: 0,
     qtde10: 0,
-    atendido: false,
+    atendido: null,
+    espera:null,
     marcaEscolhida:0,
     empresaEscolhida:{},
     timeStamp: Date.now() 

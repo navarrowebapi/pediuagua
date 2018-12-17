@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="pediuagua.com.br" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>PediuÁguaMobile</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>PediuÁguaApp</name>
+    <description>O App de pedir Água.</description>
+    <author email="navarro.fabio@gmail.com" href="http://pediuagua.com/">PediuÁguaApp Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -78,15 +78,15 @@
     </platform>
     <allow-navigation href="http://192.168.0.15:8100" />
     <engine name="android" spec="~6.3.0" />
-    <engine name="browser" spec="~5.0.3" />
-    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+    <engine name="browser" spec="^5.0.4" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.10.1">
         <variable name="APP_ID" value="566388210361743" />
         <variable name="APP_NAME" value="pediuaguamobile" />
     </plugin>
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
-    <plugin name="cordova-plugin-device" spec="^1.1.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
-    <plugin name="cordova-sqlite-storage" spec="^2.3.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-plugin-device" spec="^1.1.7" />
+    <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.2.1" />
+    <plugin name="cordova-sqlite-storage" spec="^2.5.2" />
 </widget>
