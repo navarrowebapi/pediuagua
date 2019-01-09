@@ -5,7 +5,8 @@ import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
 import { HomePage } from '../home/home';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
-import { SignupPage } from '../signup/signup';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { database } from 'firebase';
 
 @IonicPage()
 @Component({
@@ -14,31 +15,55 @@ import { SignupPage } from '../signup/signup';
 })
 export class SigninWithEmailPage {
   user: User = new User();
-
+  
   @ViewChild('form') form: NgForm;
 
   constructor(
     public navCtrl: NavController,
+    public nativeStorage: NativeStorage,
     private toastCtrl: ToastController,
     private authService: AuthService) {
-      //this.user.email = "navarro.fabio@gmail.com";
-      //this.user.password = "123123";
+      
+      //Verifica se já está logado.
+      this.nativeStorage.getItem('usuario')
+      .then(
+        data => {
+          if (data != null) {
+            this.user.email = data.user;
+            this.user.password = data.pass;
+          }
+        },
+        error => console.error(error)
+      );
+
+
+
   }
 
   resetPassword() {
     this.navCtrl.push(ResetpasswordPage);
   }
 
+
+  persistUser(user) {
+    this.nativeStorage.setItem('usuario', { user: user.email, pass: user.password })
+      .then(
+        () => console.log('Stored item!'),
+        error => console.error('Error storing item', error)
+      );
+  }
+
   signIn() {
     if (this.form.form.valid) {
       this.authService.signIn(this.user)
         .then(() => {
+          this.persistUser(this.user);
           this.navCtrl.push(HomePage);
         })
         .catch((error: any) => {
           console.log(error);
           let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });
-          
+
           if (error.code == 'auth/invalid-email') {
             toast.setMessage('O e-mail digitado não é valido.');
           } else if (error.code == 'auth/user-disabled') {

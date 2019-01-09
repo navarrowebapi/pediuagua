@@ -11,6 +11,7 @@ import { AngularFireModule } from 'angularfire2';
 import { FirebaseProvider } from './../providers/firebase/firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HttpClientModule } from '@angular/common/http'; 
+import { NativeStorage } from '@ionic-native/native-storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -88,6 +89,7 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     ContactService,
+    NativeStorage,
     FirebaseProvider,
     AngularFireAuth,
     Facebook,
