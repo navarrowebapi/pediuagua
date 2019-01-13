@@ -1,3 +1,16 @@
+<ion-menu [content]="content" side="left">
+        <ion-content>
+            <ion-list>
+                <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                    {{p.title}}
+                </button>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>
+
+
 <ion-tabs color="primary">
     <!-- <ion-tab [root]="distribuidoresRoot" tabTitle="Distribuidores" tabIcon="apps"></ion-tab> -->
     <ion-tab [root]="favouMarcasRoot" tabTitle="Favorito" tabIcon="apps"></ion-tab>

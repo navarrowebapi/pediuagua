@@ -1,3 +1,5 @@
+import { ContactusPageModule } from './../pages/contactus/contactus.module';
+import { AddressPageModule } from './../pages/address/address.module';
 import { FavoumarcasPageModule } from './../pages/favoumarcas/favoumarcas.module';
 import { FavoumarcasPage } from './../pages/favoumarcas/favoumarcas';
 import { BrowserModule } from '@angular/platform-browser';
@@ -64,6 +66,8 @@ const firebaseConfig = {
     HttpClientModule,
     MarcasPageModule,
     FavoumarcasPageModule,
+    AddressPageModule,
+    ContactusPageModule,
     DistribuidoresPageModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),

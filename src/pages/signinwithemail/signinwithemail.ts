@@ -6,6 +6,7 @@ import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { Events } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -21,6 +22,7 @@ export class SigninWithEmailPage {
     public navCtrl: NavController,
     public nativeStorage: NativeStorage,
     private toastCtrl: ToastController,
+    public events:Events,
     private authService: AuthService) {
       
       //Verifica se já está logado.
@@ -68,6 +70,7 @@ export class SigninWithEmailPage {
       this.authService.signIn(this.user)
         .then(() => {
           this.persistUser(this.user);
+          this.events.publish('user:loggedin');
           this.navCtrl.push(FavoumarcasPage);
         })
         .catch((error: any) => {
