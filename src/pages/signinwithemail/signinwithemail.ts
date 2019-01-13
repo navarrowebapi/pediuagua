@@ -1,12 +1,11 @@
+import { FavoumarcasPage } from './../favoumarcas/favoumarcas';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
-import { HomePage } from '../home/home';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { database } from 'firebase';
 
 @IonicPage()
 @Component({
@@ -36,6 +35,17 @@ export class SigninWithEmailPage {
         error => console.error(error)
       );
 
+      // //verifica se possui pedido favorito
+      // this.nativeStorage.getItem('favorito')
+      //   .then(
+      //     data => {
+      //       if (data != null) {
+      //         this.user.email = data.user;
+      //         this.user.password = data.pass;
+      //       }
+      //     },
+      //     error => console.error(error)
+      //   );
 
 
   }
@@ -58,7 +68,7 @@ export class SigninWithEmailPage {
       this.authService.signIn(this.user)
         .then(() => {
           this.persistUser(this.user);
-          this.navCtrl.push(HomePage);
+          this.navCtrl.push(FavoumarcasPage);
         })
         .catch((error: any) => {
           console.log(error);

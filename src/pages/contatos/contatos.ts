@@ -37,7 +37,8 @@ export class ContatosPage {
     espera: null,
     marcaEscolhida: 0,
     empresaEscolhida: this.empresaescolhida,
-    timeStamp: Date.now()
+    timeStamp: Date.now(),
+    datahora: new Date().toISOString()
   }
 
   contato = {};
@@ -78,7 +79,7 @@ export class ContatosPage {
     console.log(checkDadosPedido);
     if (!checkDadosPedido) {
       let toast = this.toastCtrl.create({ duration: 4000, position: 'bottom' });
-      toast.setMessage('Houve um erro ao processar o pedido, por favor refaça.');
+      toast.setMessage('Foi preciso fazer login novamente.');
       toast.present();
       this.sair();
     } else {

@@ -53,6 +53,11 @@
       <p>Rua do Cliente, 555</p>
     </ion-item>
 
+    <ion-item>
+        <ion-label>Tornar este pedido como padrão</ion-label>
+      <ion-checkbox color="dark" [(ngModel)]="favorito" checked="favorito"></ion-checkbox>
+    </ion-item>
+
   </ion-list>
   <button ion-button round (click)="pedidoConfirmado()" large full>Confirmar Pedido</button>
 </ion-content>

@@ -12,6 +12,7 @@ export class HomePage {
    contatosRoot = 'ContatosPage'
    usuarioRoot = 'UsuarioPage'
    marcasRoot = 'MarcasPage' 
+   favouMarcasRoot = 'FavoumarcasPage'
    distribuidoresRoot = 'DistribuidoresPage'
 
   constructor(public navCtrl: NavController,  private authService: AuthService) {

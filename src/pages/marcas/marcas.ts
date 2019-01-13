@@ -40,7 +40,8 @@ export class MarcasPage {
     espera: null,
     marcaEscolhida:0,
     empresaEscolhida:{},
-    timeStamp: Date.now() 
+    timeStamp: Date.now(),
+    datahora: new Date().toISOString()
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

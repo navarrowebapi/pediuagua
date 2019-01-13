@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-right>
+      <ion-icon name="water"></ion-icon> PediuAgua.com.br
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <!-- <img src="img/nin-live.png"/> -->
+    <ion-card-content>
+        <ion-list>
+          <ion-item>
+              <h2 ion-text color="primary">{{tituloFavorito}}</h2>
+          </ion-item>   
+          <ion-item>
+            <!-- Dados do produto Favorito-->
+            <ion-thumbnail item-start>
+              <img src={{dadosProdutoEscolhido.imgMarca}}>
+            </ion-thumbnail>
+            <p>Quantidade 10 Litros: {{dadosProdutoFavorito.qtde10}}</p>
+            <p>Quantidade 20 Litros: {{dadosProdutoFavorito.qtde20}}</p>
+          </ion-item>
+
+          <ion-item>
+            <p>Endereço:</p>
+            <p>Rua do Cliente, 555</p>
+          </ion-item>
+
+        </ion-list>
+        <button ion-button round [disabled]="botaoFavorito" (click)="confirmarFavorito()" large full>Pedir favorito</button>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <!-- <img src="img/nin-live.png"/> -->
+    <ion-card-content>
+      <!-- <ion-item>
+          <h2 ion-text color="secondary">Outro pedido</h2>
+      </ion-item>    -->
+      <p>
+        <button ion-button round (click)="escolherMarcas()" large full color="secondary">Fazer Pedido</button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
