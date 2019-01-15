@@ -1,18 +1,44 @@
-<!--
-  Generated template for the AddressPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>address</ion-title>
+    <ion-title>Mudar Endereço</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <form #form="ngForm" novalidate>
+        <ion-list>
+    
+          <ion-item>
+            <ion-label stacked>Endereço</ion-label>
+            <ion-input type="text" name="endereco" [(ngModel)]="user.endereco"  #endereco="ngModel" required></ion-input>
+          </ion-item>
+          <ion-item *ngIf="endereco.errors && (endereco.dirty || endereco.touched)" class="text-danger">
+            O campo é obrigatório
+          </ion-item>
+    
+          <ion-item>
+            <ion-label stacked>Número</ion-label>
+            <ion-input type="text" name="numero" [(ngModel)]="user.numero"  #numero="ngModel" required></ion-input>
+          </ion-item>
+          <ion-item *ngIf="numero.errors && (numero.dirty || numero.touched)" class="text-danger">
+            O campo é obrigatório
+          </ion-item>
+    
+          <ion-item>
+            <ion-label stacked>Bairro</ion-label>
+            <ion-input type="text" name="bairro" [(ngModel)]="user.bairro"  #bairro="ngModel" required></ion-input>
+          </ion-item>
+          <ion-item *ngIf="bairro.errors && (bairro.dirty || bairro.touched)" class="text-danger">
+            O campo é obrigatório
+          </ion-item>
+    
+        </ion-list>
+    
+        <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="atualizaEndereco()">
+          Atualizar endereço
+        </button>
+      </form>
 </ion-content>

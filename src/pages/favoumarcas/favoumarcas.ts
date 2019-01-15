@@ -51,19 +51,26 @@ export class FavoumarcasPage {
     public firebaseProvider: FirebaseProvider,
     public nativeStorage: NativeStorage) {
 
-      console.log("favouMarcas - dados do cliente pegos do firebase");
-      const subs = this.firebaseProvider.getClienteByEmail(CONFIG.email)
-        .subscribe((c: any) => {
-          subs.unsubscribe();
-          this.contato = c;
-          this.dados.bairro = c[0].bairro;
-          this.dados.celular = c[0].celular;
-          this.dados.email = c[0].email;
-          this.dados.endereco = c[0].endereco;
-          this.dados.nome = c[0].nome;
-          this.dados.numero = c[0].numero;
-          console.log(this.dados);
-        })
+    this.nativeStorage.getItem('usuario')
+      .then(
+        data => {
+          if (data != null) {
+            const subs = this.firebaseProvider.getClienteByEmail(data.user)
+              .subscribe((c: any) => {
+                subs.unsubscribe();
+                this.contato = c;
+                this.dados.bairro = c[0].bairro;
+                this.dados.celular = c[0].celular;
+                this.dados.email = c[0].email;
+                this.dados.endereco = c[0].endereco;
+                this.dados.nome = c[0].nome;
+                this.dados.numero = c[0].numero;
+                console.log(this.dados);
+              })
+          }
+        },
+        error => console.error(error)
+      );
 
     //verifica se possui pedido favorito
     this.nativeStorage.getItem('favorito')
@@ -78,15 +85,15 @@ export class FavoumarcasPage {
             console.log(JSON.stringify(this.dadosProdutoFavorito));
             if (this.dadosProdutoFavorito.marca == 1) {
               this.dadosProdutoEscolhido.imgMarca = "img/ibira.png";
-            }else{
-              
+            } else {
+
             }
 
             this.dados.marcaEscolhida = data.marca;
             this.dados.qtde10 = data.qtde10;
             this.dados.qtde20 = data.qtde20;
 
-          }else{
+          } else {
             this.botaoFavorito = true;
             this.tituloFavorito = "Não há pedido favorito";
             this.dadosProdutoEscolhido.imgMarca = "img/selecticon.png";
@@ -99,13 +106,13 @@ export class FavoumarcasPage {
 
   }
 
-  confirmarFavorito(){
+  confirmarFavorito() {
     console.log("enviando para confirmação");
     console.log(this.dados);
     this.navCtrl.push(ConfirmacaoPage, this.dados)
   }
 
-  escolherMarcas(){
+  escolherMarcas() {
     this.navCtrl.push(MarcasPage);
   }
 

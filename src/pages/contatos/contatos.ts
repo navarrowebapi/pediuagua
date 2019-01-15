@@ -5,6 +5,7 @@ import { CONFIG } from '../..//providers/app-config'
 import { FirebaseProvider } from './../../providers/firebase/firebase';
 import { AuthService } from '../../providers/auth/auth-service';
 import { SigninPage } from '../signin/signin';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @IonicPage()
 @Component({
@@ -45,6 +46,7 @@ export class ContatosPage {
 
   constructor(private navCtrl: NavController, private navParams: NavParams,
     public firebaseProvider: FirebaseProvider, private toastCtrl: ToastController,
+    public nativeStorage: NativeStorage,
     private authService: AuthService) {
     console.log("chega assim em contatos");
     console.log(this.navParams.data);
@@ -55,21 +57,28 @@ export class ContatosPage {
     console.log("acabou de chegar em contatos e já coloquei marca e empresa em dados");
     console.log(this.dados);
 
-    //this.items = this.contactService.getAll();
-    //console.log("From contatos.ts " + JSON.stringify(this.items));
-    console.log("vai");
-    const subs = this.firebaseProvider.getClienteByEmail(CONFIG.email)
-      .subscribe((c: any) => {
-        subs.unsubscribe();
-        this.contato = c;
-        this.dados.bairro = c[0].bairro;
-        this.dados.celular = c[0].celular;
-        this.dados.email = c[0].email;
-        this.dados.endereco = c[0].endereco;
-        this.dados.nome = c[0].nome;
-        this.dados.numero = c[0].numero;
-        console.log(this.dados);
-      })
+    this.nativeStorage.getItem('usuario')
+      .then(
+        data => {
+          if (data != null) {
+            const subs = this.firebaseProvider.getClienteByEmail(data.user)
+              .subscribe((c: any) => {
+                subs.unsubscribe();
+                this.contato = c;
+                this.dados.bairro = c[0].bairro;
+                this.dados.celular = c[0].celular;
+                this.dados.email = c[0].email;
+                this.dados.endereco = c[0].endereco;
+                this.dados.nome = c[0].nome;
+                this.dados.numero = c[0].numero;
+                console.log(this.dados);
+              })
+          }
+        },
+        error => console.error(error)
+      );
+
+
   }
 
 
@@ -95,7 +104,7 @@ export class ContatosPage {
     var state = true;
     for (var key in obj) {
       if ((obj[key] === "")) {
-        console.log("valor "+obj[key] + " chave " +key);
+        console.log("valor " + obj[key] + " chave " + key);
         state = false;
         break;
       }
